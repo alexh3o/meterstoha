@@ -43,6 +43,14 @@ git clone --depth=1 "https://github.com/mdeweerd/meterstoha.git" --no-checkout M
   git show -s --pretty=format:"MetersToHA Python GIT version: %h on %ad%n"
 )
 
+echo "=== Application du patch XPath (Tentative 2) ==="
+# On utilise une regex qui ignore l'antislash et l'apostrophe en visant 'consulter l'
+find / -name "meters_to_ha.py" -exec sed -i "s/consulter l\\\\\'historique/consulter/g" {} +
+
+# Vérification du résultat
+echo "Vérification de la ligne patchée :"
+grep "consulter" /MetersToHA/apps/meters_to_ha/meters_to_ha.py
+
 echo "Generate configuration file"
 
 keys="log_level logs_folder post_login_url veolia_login veolia_password veolia_contract veolia_load_historical_data grdf_login grdf_password grdf_pce grdf_load_historical_data timeout download_folder domoticz_idx domoticz_server domoticz_login domoticz_password mqtt_server mqtt_port mqtt_login mqtt_password"
