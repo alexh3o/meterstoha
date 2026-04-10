@@ -42,7 +42,7 @@ RUN \
   && pip install --no-cache-dir \
         'urllib3>=1.24.2' \
         'colorama>=0.3.7' \
-        'selenium>=3.14.1' \
+        'selenium==4.10.0' \
         'PyVirtualDisplay>=0.2.4' \
         'requests>=2.23.0'
 
